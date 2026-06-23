@@ -1,399 +1,416 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="color-scheme" content="light" />
-<title>Flow To Grow | Trauma-Informed Yoga</title>
-<meta name="description" content="Trauma-informed yoga with Mimi. Reconnect with your body through movement that supports emotional regulation, strength, and inner calm, guided with safety, choice, and nervous-system awareness. No forcing, no pressure." />
-<meta property="og:title" content="Flow To Grow | Trauma-Informed Yoga" />
-<meta property="og:description" content="Find peace in movement. Trauma-informed yoga with safety, choice, and nervous-system awareness at the center." />
-<meta property="og:image" content="assets/about-miranda.jpg" />
-<meta property="og:type" content="website" />
-<link rel="icon" type="image/png" href="assets/favicon.png" />
-<script>document.documentElement.classList.add('js');</script>
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Shrikhand&display=swap" rel="stylesheet" />
-<style>
-  html{color-scheme:light;}
-  :root{color-scheme:light;
-
-    --still-water:#157D83;   /* primary teal, sampled from logo */
-    --deep-pool:#0E4F54;     /* dark teal */
-    --sage:#8FA459;          /* leaf green, sampled from logo */
-    --sage-soft:#B6C58E;
-    --linen:#F6F1E7;         /* warm cream background */
-    --warm-white:#FCFAF4;    /* cards */
-    --ink:#2A3B3C;           /* soft dark text */
-    --ink-soft:#566566;
-    --line:rgba(21,125,131,.16);
-    --shadow:0 18px 50px -28px rgba(14,79,84,.45);
-    --r:22px;
-    --maxw:1160px;
-    --gutter:clamp(26px, 7vw, 40px);
-  }
-  *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{
-    margin:0; background:var(--linen); color:var(--ink);
-    font-family:"Bitter",Georgia,serif; font-weight:400; line-height:1.7;
-    font-size:18px; -webkit-font-smoothing:antialiased;
-  }
-  h1,h2,h3{line-height:1.12; font-weight:600; color:var(--deep-pool); margin:0;}
-  p{margin:0 0 1.1em;}
-  a{color:var(--still-water); text-decoration:none;}
-  img{display:block; max-width:100%;}
-  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 var(--gutter);}
-  .eyebrow{
-    font-size:13px; letter-spacing:.22em; text-transform:uppercase;
-    font-weight:600; color:var(--sage); margin:0 0 18px;
-  }
-  .display{font-family:"Shrikhand",serif; font-weight:400; color:var(--deep-pool); letter-spacing:.01em;}
-
-  /* ---- buttons ---- */
-  .btn{
-    display:inline-flex; align-items:center; gap:.5em;
-    font-family:"Bitter",serif; font-weight:600; font-size:16px;
-    padding:15px 28px; border-radius:999px; cursor:pointer;
-    transition:transform .25s ease, box-shadow .25s ease, background .25s ease;
-  }
-  .btn-primary{background:var(--still-water); color:#fff; box-shadow:var(--shadow);}
-  .btn-primary:hover{transform:translateY(-2px); background:var(--deep-pool);}
-  .btn-ghost{background:transparent; color:var(--deep-pool); border:1.5px solid var(--line);}
-  .btn-ghost:hover{border-color:var(--still-water); background:rgba(21,125,131,.06);}
-
-  /* ---- header ---- */
-  header{
-    position:sticky; top:0; z-index:50;
-    background:rgba(246,241,231,.82); backdrop-filter:blur(10px);
-    border-bottom:1px solid var(--line);
-  }
-  .nav{display:flex; align-items:center; justify-content:space-between; padding:14px var(--gutter); max-width:var(--maxw); margin:0 auto;}
-  .brand{display:flex; align-items:center; gap:12px;}
-  .brand img{width:46px; height:46px; border-radius:50%;}
-  .brand .name{font-family:"Shrikhand",serif; font-size:20px; color:var(--still-water); line-height:1; letter-spacing:.01em;}
-  .navlinks{display:flex; align-items:center; gap:30px;}
-  .navlinks a{color:var(--ink); font-size:15px; font-weight:500;}
-  .navlinks a:hover{color:var(--still-water);}
-  .navlinks .btn{padding:11px 22px; font-size:15px;}
-  .menu-btn{display:none; background:none; border:0; font-size:26px; color:var(--deep-pool); cursor:pointer;}
-
-  /* ---- hero ---- */
-  .hero{position:relative; overflow:hidden;}
-  .hero-grid{display:grid; grid-template-columns:1.05fr .95fr; gap:54px; align-items:center; padding:78px var(--gutter) 64px;}
-  .hero h1{font-size:clamp(40px,6vw,68px); letter-spacing:-.01em;}
-  .hero h1 .accent{font-family:"Shrikhand",serif; font-weight:400; color:var(--still-water); display:block; font-size:.92em;}
-  .hero p.lead{font-size:20px; color:var(--ink-soft); max-width:30em; margin-top:8px;}
-  .hero-cta{display:flex; gap:14px; flex-wrap:wrap; margin-top:30px;}
-  .hero-media{position:relative; display:flex; align-items:center; justify-content:center;}
-  .breath{
-    position:absolute; width:116%; height:110%; border-radius:46%; z-index:0;
-    background:radial-gradient(circle at 50% 50%, rgba(143,164,89,.34), rgba(21,125,131,.16) 55%, rgba(21,125,131,0) 73%);
-    animation:breathe 8s ease-in-out infinite;
-  }
-  @keyframes breathe{
-    0%,100%{transform:scale(.93); opacity:.7;}
-    50%{transform:scale(1.06); opacity:1;}
-  }
-  .portrait{
-    position:relative; z-index:1; width:min(420px,90%); aspect-ratio:4/5;
-    border-radius:var(--r); object-fit:cover; object-position:center 64%; border:6px solid var(--warm-white);
-    box-shadow:var(--shadow);
-  }
-  .breath-cue{
-    position:absolute; z-index:2; bottom:6px; left:50%; transform:translateX(-50%);
-    font-size:12px; letter-spacing:.32em; text-transform:uppercase; color:var(--still-water);
-    background:var(--warm-white); padding:7px 16px; border-radius:999px; box-shadow:var(--shadow);
-    font-weight:600;
-  }
-
-  /* ---- section base ---- */
-  section{padding:78px 0;}
-  .sec-head{max-width:640px; margin-bottom:46px;}
-  .sec-head h2{font-size:clamp(28px,4vw,40px);}
-  .sec-head p{color:var(--ink-soft); font-size:19px; margin-top:14px;}
-
-  /* ---- pillars ---- */
-  .pillars{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
-  .pillar{
-    background:var(--warm-white); border:1px solid var(--line); border-radius:var(--r);
-    padding:34px 30px; transition:transform .3s ease, box-shadow .3s ease;
-  }
-  .pillar:hover{transform:translateY(-4px); box-shadow:var(--shadow);}
-  .pillar .leaf{width:38px; height:38px; margin-bottom:18px;}
-  .pillar h3{font-size:21px; margin-bottom:10px;}
-  .pillar p{font-size:16.5px; color:var(--ink-soft); margin:0;}
-
-  /* ---- about ---- */
-  .about{background:var(--warm-white); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
-  .about-grid{display:grid; grid-template-columns:.8fr 1.2fr; gap:56px; align-items:start;}
-  .about-photo{border-radius:var(--r); overflow:hidden; box-shadow:var(--shadow); position:sticky; top:96px;}
-  .about-photo img{width:100%; height:100%; object-fit:cover; aspect-ratio:3/4;}
-  .about h2{font-size:clamp(28px,4vw,40px); margin-bottom:6px;}
-  .about .sig{font-family:"Shrikhand",serif; color:var(--sage); font-size:20px; margin-bottom:24px;}
-  .about p{font-size:17.5px; color:var(--ink); max-width:36em;}
-  .credlist{display:flex; flex-wrap:wrap; gap:10px; margin-top:24px; padding:0; list-style:none;}
-  .credlist li{font-size:14px; font-weight:600; color:var(--deep-pool); background:rgba(143,164,89,.16); padding:8px 16px; border-radius:999px;}
-
-  /* ---- classes ---- */
-  .classes-grid{display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:8px;}
-  .classcard{position:relative; border-radius:var(--r); overflow:hidden; box-shadow:var(--shadow); min-height:340px;}
-  .classcard img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover;}
-  .classcard .veil{position:absolute; inset:0; background:linear-gradient(180deg, rgba(14,79,84,0) 35%, rgba(14,79,84,.86));}
-  .classcard .label{position:absolute; left:26px; right:26px; bottom:24px; z-index:2; color:#fff;}
-  .classcard .label h3{color:#fff; font-size:22px; margin-bottom:6px;}
-  .classcard .label p{margin:0; font-size:16px; color:rgba(255,255,255,.9);}
-
-  /* ---- band (exhale) ---- */
-  .band{position:relative; padding:0;}
-  .band .bandimg{height:440px; width:100%; object-fit:cover; object-position:center 40%;}
-  .band .bandtext{
-    position:absolute; inset:0; display:flex; align-items:center; justify-content:center; text-align:center;
-    background:linear-gradient(90deg, rgba(14,79,84,.72), rgba(21,125,131,.5));
-  }
-  .band .bandtext p{
-    font-family:"Shrikhand",serif; color:#fff; font-size:clamp(26px,4.4vw,46px); margin:0;
-    max-width:18em; padding:0 24px; line-height:1.18; text-shadow:0 2px 24px rgba(0,0,0,.25);
-  }
-
-  /* ---- contact ---- */
-  .contact{background:var(--deep-pool); color:#fff; text-align:center;}
-  .contact h2{color:#fff; font-size:clamp(30px,4.4vw,46px);}
-  .contact .accent{font-family:"Shrikhand",serif; color:var(--sage-soft); display:block; font-size:.9em;}
-  .contact p{color:rgba(255,255,255,.82); max-width:34em; margin:18px auto 30px; font-size:19px;}
-  .contact .btn-primary{background:var(--warm-white); color:var(--deep-pool);}
-  .contact .btn-primary:hover{background:#fff; transform:translateY(-2px);}
-  .contact .btn-ghost{color:#fff; border-color:rgba(255,255,255,.4);}
-  .contact .btn-ghost:hover{border-color:#fff; background:rgba(255,255,255,.08);}
-
-  /* ---- footer ---- */
-  footer{background:var(--linen); padding:48px 0 40px; text-align:center;}
-  footer img{width:64px; height:64px; border-radius:50%; margin:0 auto 14px;}
-  footer .fname{font-family:"Shrikhand",serif; color:var(--still-water); font-size:22px;}
-  footer .ftag{color:var(--ink-soft); font-size:14px; letter-spacing:.18em; text-transform:uppercase; margin-top:6px;}
-  footer .fmeta{color:var(--ink-soft); font-size:13px; margin-top:22px;}
-
-  /* ---- reveal (hidden only when JS is on, so no-JS users still see everything) ---- */
-  .reveal{opacity:1;}
-  .js .reveal{opacity:0; transform:translateY(22px); transition:opacity .8s ease, transform .8s ease;}
-  .js .reveal.in{opacity:1; transform:none;}
-
-  @media (max-width:880px){
-    section{padding:54px 0;}
-    .hero-grid{grid-template-columns:1fr; gap:28px; padding:30px var(--gutter) 36px;}
-    .hero-media{order:-1;}
-    .hero h1{font-size:clamp(38px,11vw,56px);}
-    .hero p.lead{font-size:18px;}
-    .portrait{width:min(300px,74%);}
-    .breath{width:104%;}
-    .sec-head{margin-bottom:34px;}
-    .pillars{grid-template-columns:1fr;}
-    .about-grid{grid-template-columns:1fr; gap:26px;}
-    .about-photo{position:static; max-width:380px; margin:0 auto;}
-    .about p{max-width:none;}
-    .classes-grid{grid-template-columns:1fr;}
-    .navlinks{display:none;}
-    .menu-btn{display:block;}
-    .navlinks.open{
-      display:flex; flex-direction:column; gap:18px; position:absolute; top:74px; right:var(--gutter);
-      background:var(--warm-white); padding:24px 28px; border-radius:var(--r); box-shadow:var(--shadow);
-      border:1px solid var(--line);
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flow To Grow — Living Yoga Beyond the Mat</title>
+  <meta name="description" content="Flow to Grow is a wellness platform centered around movement, mindfulness, healing, and intentional living — guided by Miranda Sampedro, yoga teacher and trauma therapist." />
+  <meta property="og:title" content="Flow To Grow — Living Yoga Beyond the Mat" />
+  <meta property="og:description" content="Helping people reconnect with themselves through movement, mindfulness, and intentional living." />
+  <meta property="og:image" content="assets/garden.jpg" />
+  <meta property="og:type" content="website" />
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <script>document.documentElement.classList.add('js');</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Shrikhand&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --still-water: #157D83;
+      --deep-pool: #0E4F54;
+      --sage: #8FA459;
+      --sage-soft: #B6C58E;
+      --linen: #F6F1E7;
+      --warm-white: #FCFAF4;
+      --ink: #2A3B3C;
+      --ink-soft: #566566;
+      --line: rgba(21,125,131,.16);
+      --shadow: 0 18px 50px -28px rgba(14,79,84,.45);
+      --r: 22px;
+      --maxw: 1160px;
     }
-  }
-  @media (max-width:560px){
-    body{font-size:16px; line-height:1.62;}
-    section{padding:50px 0;}
-    .hero-grid{padding:34px var(--gutter) 30px; gap:28px;}
-    .hero h1{font-size:33px;}
-    .hero h1 .accent{font-size:.86em;}
-    .hero p.lead{font-size:16px;}
-    .hero-cta{gap:10px; margin-top:24px;}
-    .portrait{width:min(280px,72%);}
-    .breath-cue{font-size:11px; letter-spacing:.26em; padding:6px 13px;}
-    .sec-head{margin-bottom:30px;}
-    .sec-head h2{font-size:24px;}
-    .sec-head p{font-size:16px; margin-top:10px;}
-    .pillars{gap:16px;}
-    .pillar{padding:24px 22px;}
-    .pillar h3{font-size:19px;}
-    .pillar p{font-size:15.5px;}
-    .about-grid{gap:22px;}
-    .about h2{font-size:26px;}
-    .about .sig{font-size:17px; margin-bottom:18px;}
-    .about p{font-size:16px;}
-    .credlist{gap:8px; margin-top:20px;}
-    .credlist li{font-size:12.5px; padding:7px 13px;}
-    .classcard{min-height:260px;}
-    .classcard .label h3{font-size:20px;}
-    .band .bandimg{height:230px;}
-    .band .bandtext p{font-size:26px;}
-    .contact h2{font-size:29px;}
-    .contact p{font-size:16.5px; margin:14px auto 26px;}
-    .btn{padding:14px 24px; font-size:15.5px;}
-    footer{padding:40px 0 34px;}
-  }
-  @media (prefers-reduced-motion:reduce){
-    *{animation:none !important; transition:none !important; scroll-behavior:auto !important;}
-    .reveal{opacity:1; transform:none;}
-  }
-  :focus-visible{outline:3px solid var(--sage); outline-offset:3px; border-radius:6px;}
-</style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body { font-family: 'Bitter', Georgia, serif; background: var(--linen); color: var(--ink); line-height: 1.7; }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; }
+
+    /* NAV */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--warm-white);
+      border-bottom: 1px solid var(--line);
+      padding: 0 24px;
+    }
+    .nav-inner {
+      max-width: var(--maxw); margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 68px;
+    }
+    .nav-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-brand img { width: 44px; height: 44px; }
+    .fname { font-family: 'Shrikhand', cursive; color: var(--still-water); font-size: 1.25rem; letter-spacing: .02em; }
+    .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
+    .nav-links a { font-size: .875rem; font-weight: 500; color: var(--ink-soft); text-decoration: none; transition: color .2s; }
+    .nav-links a:hover { color: var(--still-water); }
+    .btn-nav { background: var(--still-water); color: #fff !important; padding: 8px 20px; border-radius: 100px; transition: background .2s !important; }
+    .btn-nav:hover { background: var(--deep-pool) !important; }
+    #menuBtn { display: none; background: none; border: none; cursor: pointer; padding: 4px; color: var(--ink); }
+
+    /* SHARED */
+    section { padding: 96px 24px; }
+    .wrap { max-width: var(--maxw); margin: 0 auto; }
+    .eyebrow { font-size: .75rem; letter-spacing: .14em; text-transform: uppercase; color: var(--sage); font-weight: 600; margin-bottom: 12px; display: block; }
+    h2 { font-family: 'Shrikhand', cursive; font-size: clamp(1.9rem, 3.5vw, 2.7rem); color: var(--ink); line-height: 1.2; margin-bottom: 20px; }
+    .lead { font-size: 1.05rem; color: var(--ink-soft); line-height: 1.85; }
+    .btn { display: inline-block; padding: 14px 28px; border-radius: 100px; font-size: .9rem; font-weight: 600; text-decoration: none; transition: all .2s; font-family: 'Bitter', serif; }
+    .btn-primary { background: var(--still-water); color: #fff; }
+    .btn-primary:hover { background: var(--deep-pool); transform: translateY(-1px); }
+    .btn-ghost { background: transparent; color: var(--ink); border: 2px solid rgba(42,59,60,.3); }
+    .btn-ghost:hover { border-color: var(--still-water); color: var(--still-water); }
+    .btn-row { display: flex; gap: 14px; flex-wrap: wrap; }
+
+    /* HERO */
+    .hero { min-height: 92vh; display: flex; align-items: center; padding: 80px 24px; }
+    .hero-inner {
+      max-width: var(--maxw); margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 72px; align-items: center; width: 100%;
+    }
+    .hero-eyebrow { font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--sage); font-weight: 600; margin-bottom: 16px; display: block; }
+    .hero h1 {
+      font-family: 'Shrikhand', cursive;
+      font-size: clamp(2.6rem, 5.5vw, 4rem);
+      color: var(--ink); line-height: 1.1; margin-bottom: 28px;
+    }
+    .hero h1 em { font-style: italic; color: var(--still-water); font-family: 'Bitter', serif; font-weight: 700; }
+    .hero-sub { font-size: 1.1rem; color: var(--ink-soft); max-width: 480px; margin-bottom: 44px; line-height: 1.85; }
+    .portrait {
+      width: 100%; max-width: 460px; margin: 0 auto;
+      aspect-ratio: 1; border-radius: 50%;
+      object-fit: cover; object-position: center 82%;
+      border: 6px solid var(--warm-white);
+      box-shadow: var(--shadow);
+    }
+
+    /* PHILOSOPHY */
+    .philosophy { background: var(--warm-white); }
+    .philosophy-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+    .philosophy-copy p { color: var(--ink-soft); margin-bottom: 18px; line-height: 1.85; }
+    .seed-list { list-style: none; margin-top: 32px; border-top: 1px solid var(--line); }
+    .seed-list li {
+      padding: 16px 0; border-bottom: 1px solid var(--line);
+      display: flex; gap: 14px; align-items: flex-start;
+      color: var(--ink-soft); font-size: .95rem; line-height: 1.6;
+    }
+    .seed-list li span { flex-shrink: 0; font-size: 1.1rem; margin-top: 1px; }
+    .quote-box {
+      background: var(--linen); border-radius: var(--r);
+      padding: 48px 44px; position: sticky; top: 100px;
+      border-left: 4px solid var(--still-water);
+    }
+    .quote-box blockquote {
+      font-family: 'Bitter', serif; font-style: italic;
+      font-size: clamp(1.15rem, 2vw, 1.4rem);
+      color: var(--ink); line-height: 1.65; margin-bottom: 24px;
+    }
+    .quote-box cite { font-style: normal; font-size: .85rem; color: var(--ink-soft); letter-spacing: .05em; }
+
+    /* MEET MIRANDA */
+    .meet { background: var(--linen); }
+    .meet-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+    .meet-photo img { width: 100%; border-radius: var(--r); box-shadow: var(--shadow); }
+    .meet-copy .sig { font-family: 'Bitter', serif; font-style: italic; font-size: 1rem; color: var(--sage); font-weight: 600; margin-bottom: 28px; display: block; }
+    .meet-copy p { color: var(--ink-soft); margin-bottom: 16px; line-height: 1.85; }
+
+    /* WAYS TO GROW */
+    .ways { background: var(--still-water); }
+    .ways-header { text-align: center; margin-bottom: 56px; }
+    .ways-header h2 { color: #fff; }
+    .ways-header .eyebrow { color: rgba(255,255,255,.6); }
+    .ways-header .lead { color: rgba(255,255,255,.75); max-width: 560px; margin: 0 auto; }
+    .ways-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .way-card {
+      background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.15);
+      border-radius: var(--r); padding: 36px 28px;
+      transition: background .25s, transform .25s;
+    }
+    .way-card:hover { background: rgba(255,255,255,.18); transform: translateY(-3px); }
+    .way-icon { font-size: 2rem; margin-bottom: 16px; }
+    .way-card h3 { color: #fff; font-family: 'Shrikhand', cursive; font-size: 1.2rem; margin-bottom: 10px; }
+    .way-card p { color: rgba(255,255,255,.75); font-size: .9rem; line-height: 1.7; }
+
+    /* LIVING YOGA */
+    .living { background: var(--warm-white); }
+    .living-header { text-align: center; margin-bottom: 60px; }
+    .living-header .lead { max-width: 620px; margin: 0 auto; }
+    .living-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .living-tile {
+      text-decoration: none; display: block;
+      background: var(--linen); border-radius: var(--r);
+      padding: 40px 32px; border: 1px solid var(--line);
+      transition: all .25s;
+    }
+    .living-tile:hover { transform: translateY(-5px); box-shadow: var(--shadow); border-color: var(--sage-soft); }
+    .tile-icon { font-size: 2.4rem; margin-bottom: 18px; }
+    .living-tile h3 { font-family: 'Shrikhand', cursive; color: var(--ink); font-size: 1.2rem; margin-bottom: 10px; }
+    .living-tile p { color: var(--ink-soft); font-size: .9rem; line-height: 1.7; }
+    .tile-arrow { display: inline-block; margin-top: 20px; color: var(--still-water); font-size: .85rem; font-weight: 600; letter-spacing: .04em; }
+    .living-tile:last-child { grid-column: 2; }
+
+    /* CONTACT */
+    .contact { background: var(--linen); text-align: center; }
+    .contact h2 { margin-bottom: 16px; }
+    .contact .lead { max-width: 520px; margin: 0 auto 44px; }
+
+    /* FOOTER */
+    footer { background: var(--ink); color: rgba(255,255,255,.55); padding: 48px 24px; text-align: center; }
+    .footer-inner { max-width: var(--maxw); margin: 0 auto; }
+    footer img { width: 42px; margin: 0 auto 14px; opacity: .65; }
+    .fname-f { font-family: 'Shrikhand', cursive; color: rgba(255,255,255,.9); font-size: 1rem; margin-bottom: 4px; }
+    .ftag { font-size: .8rem; margin-bottom: 18px; color: rgba(255,255,255,.45); }
+    .fmeta { font-size: .75rem; }
+
+    /* REVEAL */
+    .js .reveal { opacity: 0; transform: translateY(28px); transition: opacity .65s, transform .65s; }
+    .js .reveal.in { opacity: 1; transform: none; }
+
+    /* RESPONSIVE */
+    @media (max-width: 960px) {
+      .hero-inner, .philosophy-inner, .meet-inner { grid-template-columns: 1fr; gap: 48px; }
+      .hero-photo { order: -1; }
+      .portrait { max-width: 300px; }
+      .ways-grid { grid-template-columns: repeat(2, 1fr); }
+      .living-grid { grid-template-columns: repeat(2, 1fr); }
+      .living-tile:last-child { grid-column: auto; }
+      .quote-box { position: static; }
+    }
+    @media (max-width: 600px) {
+      section { padding: 64px 20px; }
+      .ways-grid, .living-grid { grid-template-columns: 1fr; }
+      .living-tile:last-child { grid-column: auto; }
+      .nav-links {
+        display: none; flex-direction: column;
+        position: absolute; top: 68px; left: 0; right: 0;
+        background: var(--warm-white); padding: 16px 24px 24px;
+        border-bottom: 1px solid var(--line); gap: 0;
+      }
+      .nav-links.open { display: flex; }
+      #menuBtn { display: block; }
+    }
+  </style>
 </head>
 <body>
 
-<header>
-  <div class="nav">
-    <a class="brand" href="#top" aria-label="Flow To Grow home">
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/">
       <img src="assets/logo-badge.png" alt="Flow To Grow logo" />
-      <span class="name">Flow&nbsp;to&nbsp;Grow</span>
+      <span class="fname">Flow to Grow</span>
     </a>
-    <nav class="navlinks" id="nav">
-      <a href="#approach">Approach</a>
-      <a href="#about">About</a>
-      <a href="#classes">Classes</a>
-      <a href="#contact" class="btn btn-primary">Book a class</a>
-    </nav>
-    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">☰</button>
+    <ul class="nav-links" id="nav">
+      <li><a href="#philosophy">Philosophy</a></li>
+      <li><a href="#miranda">Meet Miranda</a></li>
+      <li><a href="#offerings">Ways to Grow</a></li>
+      <li><a href="#living-yoga">Living Yoga</a></li>
+      <li><a href="#contact" class="btn-nav">Connect</a></li>
+    </ul>
+    <button id="menuBtn" aria-label="Toggle menu" aria-expanded="false">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
   </div>
-</header>
+</nav>
 
-<main id="top">
-
-  <!-- HERO -->
-  <section class="hero">
-    <div class="wrap hero-grid">
-      <div class="hero-copy reveal">
-        <p class="eyebrow">Trauma-Informed Yoga</p>
-        <h1>Find peace<span class="accent">in movement.</span></h1>
-        <p class="lead">Movement that supports emotional regulation, strength, and inner calm, with safety and nervous-system awareness at the center.</p>
-        <div class="hero-cta">
-          <a href="#contact" class="btn btn-primary">Book a class</a>
-          <a href="#approach" class="btn btn-ghost">How it works</a>
-        </div>
-      </div>
-      <div class="hero-media reveal">
-        <div class="breath" aria-hidden="true"></div>
-        <img class="portrait" src="assets/hero-miranda.jpg" alt="Miranda practicing yoga among the flowers" />
-        <span class="breath-cue">Inhale · Exhale</span>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-copy reveal">
+      <span class="hero-eyebrow">Flow to Grow</span>
+      <h1>Living Yoga<br /><em>Beyond the Mat</em></h1>
+      <p class="hero-sub">Helping people reconnect with themselves through movement, mindfulness, and intentional living.</p>
+      <div class="btn-row">
+        <a href="#contact" class="btn btn-primary">Connect with Miranda</a>
+        <a href="#philosophy" class="btn btn-ghost">Our Philosophy</a>
       </div>
     </div>
-  </section>
-
-  <!-- APPROACH -->
-  <section id="approach">
-    <div class="wrap">
-      <div class="sec-head reveal">
-        <p class="eyebrow">The Approach</p>
-        <h2>Movement that meets your nervous system, not your ego.</h2>
-        <p>No forcing. No pushing through. Just a practice built to help you feel safe in your body again, at whatever pace that takes.</p>
-      </div>
-      <div class="pillars">
-        <div class="pillar reveal">
-          <svg class="leaf" viewBox="0 0 24 24" fill="none" stroke="#8FA459" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></svg>
-          <h3>Regulate &amp; restore</h3>
-          <p>Practices that support emotional regulation, physical strength, and inner calm, so movement becomes a way back to yourself.</p>
-        </div>
-        <div class="pillar reveal">
-          <svg class="leaf" viewBox="0 0 24 24" fill="none" stroke="#8FA459" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1Z"/></svg>
-          <h3>Safety &amp; choice</h3>
-          <p>Every class is guided with safety, choice, and nervous-system awareness at the center. You're always invited, never pushed.</p>
-        </div>
-        <div class="pillar reveal">
-          <svg class="leaf" viewBox="0 0 24 24" fill="none" stroke="#8FA459" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 20h10"/><path d="M10 20c5.5-2.5.8-6.4 3-10"/><path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.9-.5 4.4 0 5.5.8Z"/><path d="M14.1 6c-.9 1-1.6 2.4-2.1 4.1 2 .4 3.5.3 4.8-.3 1.2-.6 2.3-1.9 3-4.2-2.9-.5-4.4 0-5.7.4Z"/></svg>
-          <h3>Grow without burnout</h3>
-          <p>Build consistency through practices designed for long-term growth, not short-term intensity. Real change, gently.</p>
-        </div>
-      </div>
+    <div class="hero-photo reveal">
+      <img class="portrait" src="assets/garden.jpg" alt="Miranda Sampedro practicing yoga outdoors in a garden" />
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ABOUT -->
-  <section class="about" id="about">
-    <div class="wrap about-grid">
-      <div class="about-photo reveal">
-        <img src="assets/about-miranda.jpg" alt="Miranda, founder of Flow to Grow, hands at heart center" style="object-position:center 28%;" />
-      </div>
-      <div class="about-copy reveal">
-        <p class="eyebrow">About</p>
-        <h2>Meet Miranda.</h2>
-        <p class="sig">Yoga Teacher · Therapist · Social Worker</p>
-        <p>Miranda Sampedro is a trauma therapist, yoga teacher, and founder of Flow to Grow, a wellness platform dedicated to helping individuals reconnect with themselves through movement, mindfulness, and intentional living.</p>
-        <p>Drawing from her work with adolescents and young adults who have experienced trauma, exploitation, family conflict, and other significant life challenges, Miranda has developed a deep appreciation for the resilience of the human spirit and the importance of creating spaces that foster healing, safety, and connection. This experience provides a unique lens through which she approaches both mental health and yoga, emphasizing self-awareness, nervous system regulation, self-compassion, and sustainable growth.</p>
-        <p>As both a therapist and yoga teacher, Miranda believes that healing extends far beyond a therapy office or yoga studio. Her work is rooted in the understanding that growth happens through the small, intentional choices we make each day: how we care for ourselves, move our bodies, navigate relationships, respond to challenges, and reconnect with what matters most.</p>
-        <p>Through yoga classes, workshops, community experiences, and educational resources, Miranda strives to make wellness practices accessible, trauma-informed, and relevant to everyday life. She is passionate about helping others cultivate balance, resilience, and a deeper connection to themselves and their communities.</p>
-        <ul class="credlist">
-          <li>Trauma Therapist</li>
-          <li>Yoga Teacher</li>
-          <li>Social Worker</li>
-          <li>Founder</li>
+<!-- PHILOSOPHY -->
+<section class="philosophy" id="philosophy">
+  <div class="wrap">
+    <div class="philosophy-inner">
+      <div class="philosophy-copy reveal">
+        <span class="eyebrow">What is Flow to Grow?</span>
+        <h2>More than a name.</h2>
+        <p>Flow to Grow was born from yoga — from the idea of <em>flow</em>, that state where movement, breath, and awareness meet in the present moment.</p>
+        <p>Over time, its meaning deepened. Flow to Grow is not about perfecting a pose. It is about learning to move <em>with</em> life rather than constantly resisting it. It is about trusting that growth is already happening, even when progress feels invisible.</p>
+        <p>Like a seed beneath the soil, transformation takes time, intention, and the right conditions. Flow to Grow is about creating those conditions — in your body, your mind, your relationships, and your everyday choices.</p>
+        <ul class="seed-list">
+          <li><span>🌱</span> Growth through movement and mindfulness</li>
+          <li><span>🌊</span> Learning to move with life rather than resist it</li>
+          <li><span>🌿</span> Trusting the process, even when progress feels invisible</li>
+          <li><span>🌸</span> Planting seeds that take root and eventually flourish</li>
+          <li><span>✨</span> Creating the conditions for healing and transformation</li>
         </ul>
       </div>
-    </div>
-  </section>
-
-  <!-- CLASSES -->
-  <section id="classes">
-    <div class="wrap">
-      <div class="sec-head reveal">
-        <p class="eyebrow">The Classes</p>
-        <h2>From gentle restorative flows to strength-based practice.</h2>
-        <p>Each class is designed to meet you where you are and help you move forward with intention, confidence, and care.</p>
+      <div class="quote-box reveal">
+        <blockquote>"Growth is not forced. Like a seed, it happens when we create the right environment — through awareness, intention, compassion, and action."</blockquote>
+        <cite>— Miranda Sampedro, Flow to Grow</cite>
       </div>
-      <div class="classes-grid">
-        <div class="classcard reveal">
-          <img src="assets/class-lead.jpg" alt="Miranda leading an outdoor yoga class" />
-          <div class="veil"></div>
-          <div class="label"><h3>Guided group flow</h3><p>Move together, at your own pace, outdoors in the light.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- MEET MIRANDA -->
+<section class="meet" id="miranda">
+  <div class="wrap">
+    <div class="meet-inner">
+      <div class="meet-photo reveal">
+        <img src="assets/mimi-portrait.jpg" alt="Miranda Sampedro — yoga teacher, therapist, and founder of Flow to Grow" />
+      </div>
+      <div class="meet-copy reveal">
+        <span class="eyebrow">Meet Miranda</span>
+        <h2>About Mimi</h2>
+        <span class="sig">Yoga Teacher · Therapist · Social Worker</span>
+        <p>Miranda Sampedro is a trauma therapist, yoga teacher, and founder of Flow to Grow — a wellness platform dedicated to helping people reconnect with themselves through movement, mindfulness, and intentional living.</p>
+        <p>Her work sits at the intersection of mental health, yoga philosophy, nervous system healing, and community. Drawing from years of working with adolescents and young adults who have experienced trauma, family conflict, and significant life challenges, Miranda brings a deep, human understanding of resilience and growth to everything she does.</p>
+        <p>She believes healing extends far beyond a therapy office or yoga studio. It lives in the small, daily choices — how we breathe, how we move, how we speak to ourselves, and how we show up for our lives.</p>
+        <div class="btn-row" style="margin-top:36px;">
+          <a href="#contact" class="btn btn-primary">Work with Miranda</a>
         </div>
-        <div class="classcard reveal">
-          <img src="assets/community.jpg" alt="A community yoga class practicing together outdoors" />
-          <div class="veil"></div>
-          <div class="label"><h3>Community practice</h3><p>A welcoming space to grow alongside others, no experience needed.</p></div>
-        </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- CONTACT -->
-  <section class="contact" id="contact">
-    <div class="wrap reveal">
-      <p class="eyebrow" style="color:var(--sage-soft)">Begin</p>
-      <h2>Your body is ready<span class="accent">when you are.</span></h2>
-      <p>Come as you are. Whether it's your first time on a mat or your thousandth, there's a place for you here.</p>
-      <div class="hero-cta" style="justify-content:center">
-        <a href="mailto:hello@flowtogrow.life" class="btn btn-primary">Book a class</a>
-        <a href="mailto:hello@flowtogrow.life" class="btn btn-ghost">Email Miranda</a>
+<!-- WAYS TO GROW -->
+<section class="ways" id="offerings">
+  <div class="wrap">
+    <div class="ways-header">
+      <span class="eyebrow">Ways to Grow</span>
+      <h2>How we grow together.</h2>
+      <p class="lead">Whether you are new to yoga or deepening a long-standing practice, there is a place for you here.</p>
+    </div>
+    <div class="ways-grid">
+      <div class="way-card reveal">
+        <div class="way-icon">🧘</div>
+        <h3>Public Classes</h3>
+        <p>Group yoga classes open to all levels. A grounded, welcoming space to move, breathe, and reconnect.</p>
+      </div>
+      <div class="way-card reveal">
+        <div class="way-icon">🌿</div>
+        <h3>Private Sessions</h3>
+        <p>One-on-one sessions tailored to your needs — movement, mindfulness, nervous system support, or a blend of all three.</p>
+      </div>
+      <div class="way-card reveal">
+        <div class="way-icon">🌸</div>
+        <h3>Workshops &amp; Events</h3>
+        <p>Community gatherings exploring yoga philosophy, self-compassion, healing, and intentional living.</p>
+      </div>
+      <div class="way-card reveal">
+        <div class="way-icon">✨</div>
+        <h3>Future Offerings</h3>
+        <p>Online resources, courses, and wellness programs are growing. Stay connected for what is coming next.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-</main>
+<!-- LIVING YOGA -->
+<section class="living" id="living-yoga">
+  <div class="wrap">
+    <div class="living-header">
+      <span class="eyebrow">Living Yoga</span>
+      <h2>Yoga beyond the mat.</h2>
+      <p class="lead">Yoga is more than physical postures. Explore how its principles weave through every part of your life — from how you breathe, to how you heal, to how you grow.</p>
+    </div>
+    <div class="living-grid">
+      <a class="living-tile reveal" href="living-yoga/8-limbs.html">
+        <div class="tile-icon">🌀</div>
+        <h3>The 8 Limbs of Yoga</h3>
+        <p>A roadmap for living — the ancient framework that goes far beyond postures into ethics, awareness, and inner stillness.</p>
+        <span class="tile-arrow">Explore →</span>
+      </a>
+      <a class="living-tile reveal" href="living-yoga/nervous-system.html">
+        <div class="tile-icon">🌊</div>
+        <h3>Nervous System Regulation</h3>
+        <p>Understanding how your body responds to stress — and how movement, breath, and presence can restore a sense of safety and calm.</p>
+        <span class="tile-arrow">Explore →</span>
+      </a>
+      <a class="living-tile reveal" href="living-yoga/self-compassion.html">
+        <div class="tile-icon">💛</div>
+        <h3>Self-Compassion</h3>
+        <p>Treating yourself with the same warmth you would offer someone you love. The quiet foundation of all lasting growth.</p>
+        <span class="tile-arrow">Explore →</span>
+      </a>
+      <a class="living-tile reveal" href="living-yoga/mindfulness.html">
+        <div class="tile-icon">🍃</div>
+        <h3>Mindfulness</h3>
+        <p>Presence as a practice. Learning to observe your inner experience with curiosity, openness, and without judgment.</p>
+        <span class="tile-arrow">Explore →</span>
+      </a>
+      <a class="living-tile reveal" href="living-yoga/healing.html">
+        <div class="tile-icon">🌱</div>
+        <h3>Healing</h3>
+        <p>Healing is not linear, and it is not a destination. It is a way of moving through the world with gentleness and intention.</p>
+        <span class="tile-arrow">Explore →</span>
+      </a>
+      <a class="living-tile reveal" href="living-yoga/intentional-living.html">
+        <div class="tile-icon">🧭</div>
+        <h3>Intentional Living</h3>
+        <p>Aligning your daily choices with your deepest values. Small, conscious actions that shape the life you want to live.</p>
+        <span class="tile-arrow">Explore →</span>
+      </a>
+      <a class="living-tile reveal" href="living-yoga/personal-growth.html">
+        <div class="tile-icon">🌸</div>
+        <h3>Personal Growth</h3>
+        <p>Growth happens in the quiet moments. Learning how to tend to yourself so that you can truly flourish.</p>
+        <span class="tile-arrow">Explore →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <span class="eyebrow">Connect</span>
+    <h2>Let's grow together.</h2>
+    <p class="lead">Whether you are curious about classes, private sessions, or simply want to say hello — Miranda would love to hear from you.</p>
+    <div class="btn-row" style="justify-content:center; margin-top:44px;">
+      <a href="mailto:hello@flowtogrow.life" class="btn btn-primary">Book a class</a>
+      <a href="mailto:hello@flowtogrow.life" class="btn btn-ghost">Say hello</a>
+    </div>
+  </div>
+</section>
 
 <footer>
-  <div class="wrap">
+  <div class="footer-inner">
     <img src="assets/logo-badge.png" alt="Flow To Grow logo" />
-    <div class="fname">Flow to Grow</div>
-    <div class="ftag">Trauma-Informed Yoga</div>
-    <div class="fmeta">© <span id="yr"></span> Flow To Grow · Find peace in movement.</div>
+    <div class="fname-f">Flow to Grow</div>
+    <div class="ftag">Living Yoga Beyond the Mat</div>
+    <div class="fmeta">© <span id="yr"></span> Flow To Grow &middot; Find peace in movement.</div>
   </div>
 </footer>
 
 <script>
-  // mobile menu
-  var mb=document.getElementById('menuBtn'), nav=document.getElementById('nav');
-  mb.addEventListener('click',function(){
-    var open=nav.classList.toggle('open');
-    mb.setAttribute('aria-expanded',open);
+  var mb = document.getElementById('menuBtn'), nav = document.getElementById('nav');
+  mb.addEventListener('click', function(){
+    var open = nav.classList.toggle('open');
+    mb.setAttribute('aria-expanded', open);
   });
-  nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){nav.classList.remove('open');});});
-  // year
-  document.getElementById('yr').textContent=new Date().getFullYear();
-  // scroll reveal
-  var io=new IntersectionObserver(function(es){
-    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
-  },{threshold:.14});
-  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+  nav.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ nav.classList.remove('open'); }); });
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
 </script>
 </body>
 </html>
