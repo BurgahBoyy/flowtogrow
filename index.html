@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Flow To Grow â Trauma-Informed Yoga</title>
-<meta name="description" content="Trauma-informed yoga with Mimi. Reconnect with your body through movement that supports emotional regulation, strength, and inner calm â guided with safety, choice, and nervous-system awareness. No forcing, no pressure." />
-<meta property="og:title" content="Flow To Grow â Trauma-Informed Yoga" />
+<title>Flow To Grow — Trauma-Informed Yoga</title>
+<meta name="description" content="Trauma-informed yoga with Mimi. Reconnect with your body through movement that supports emotional regulation, strength, and inner calm — guided with safety, choice, and nervous-system awareness. No forcing, no pressure." />
+<meta property="og:title" content="Flow To Grow — Trauma-Informed Yoga" />
 <meta property="og:description" content="Find peace in movement. Trauma-informed yoga with safety, choice, and nervous-system awareness at the center." />
-<meta property="og:image" content="assets/garden.jpg" />
+<meta property="og:image" content="assets/mimi-portrait.jpg" />
 <meta property="og:type" content="website" />
 <link rel="icon" type="image/png" href="assets/favicon.png" />
 <script>document.documentElement.classList.add('js');</script>
@@ -94,7 +94,7 @@
   }
   .portrait{
     position:relative; z-index:1; width:min(420px,86%); aspect-ratio:1;
-    border-radius:50%; object-fit:cover; object-position:center 82%; border:6px solid var(--warm-white);
+    border-radius:50%; object-fit:cover; border:6px solid var(--warm-white);
     box-shadow:var(--shadow);
   }
   .breath-cue{
@@ -124,7 +124,7 @@
   /* ---- about ---- */
   .about{background:var(--warm-white); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
   .about-grid{display:grid; grid-template-columns:.82fr 1.18fr; gap:54px; align-items:center;}
-  .about-photo{border-radius:0; box-shadow:none; border:none;}
+  .about-photo{border-radius:var(--r); overflow:hidden; box-shadow:var(--shadow);}
   .about-photo img{width:100%; height:100%; object-fit:cover; aspect-ratio:3/4;}
   .about h2{font-size:clamp(28px,4vw,40px); margin-bottom:8px;}
   .about .sig{font-family:"Shrikhand",serif; color:var(--sage); font-size:22px; margin-bottom:20px;}
@@ -178,7 +178,7 @@
   @media (max-width:880px){
     .hero-grid{grid-template-columns:1fr; gap:36px; padding:54px 0 44px;}
     .hero-media{order:-1;}
-    .pillars{grid-template-columns:1fr;}h
+    .pillars{grid-template-columns:1fr;}
     .about-grid{grid-template-columns:1fr; gap:30px;}
     .classes-grid{grid-template-columns:1fr;}
     .navlinks{display:none;}
@@ -210,7 +210,7 @@
       <a href="#classes">Classes</a>
       <a href="#contact" class="btn btn-primary">Book a class</a>
     </nav>
-    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">â°</button>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">☰</button>
   </div>
 </header>
 
@@ -220,9 +220,9 @@
   <section class="hero">
     <div class="wrap hero-grid">
       <div class="hero-copy reveal">
-        
+        <p class="eyebrow">Trauma-Informed Yoga</p>
         <h1>Find peace<span class="accent">in movement.</span></h1>
-        <p class="lead">Reconnect with your body through movement that supports emotional regulation, physical strength, and inner calm â guided with safety, choice, and nervous-system awareness at the center.</p>
+        <p class="lead">Reconnect with your body through movement that supports emotional regulation, physical strength, and inner calm — guided with safety, choice, and nervous-system awareness at the center.</p>
         <div class="hero-cta">
           <a href="#contact" class="btn btn-primary">Book a class</a>
           <a href="#approach" class="btn btn-ghost">How it works</a>
@@ -230,7 +230,8 @@
       </div>
       <div class="hero-media reveal">
         <div class="breath" aria-hidden="true"></div>
-        <img class="portrait" src="assets/garden.jpg" alt="Mimi, trauma-informed yoga teacher, with hands at heart center" />
+        <img class="portrait" src="assets/mimi-portrait.jpg" alt="Mimi, trauma-informed yoga teacher, with hands at heart center" />
+        <span class="breath-cue">Inhale · Exhale</span>
       </div>
     </div>
   </section>
@@ -241,13 +242,13 @@
       <div class="sec-head reveal">
         <p class="eyebrow">The Approach</p>
         <h2>Movement that meets your nervous system, not your ego.</h2>
-        <p>No forcing. No pushing through. Just a practice built to help you feel safe in your body again â at whatever pace that takes.</p>
+        <p>No forcing. No pushing through. Just a practice built to help you feel safe in your body again — at whatever pace that takes.</p>
       </div>
       <div class="pillars">
         <div class="pillar reveal">
           <svg class="leaf" viewBox="0 0 24 24" fill="none" stroke="#8FA459" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></svg>
           <h3>Regulate &amp; restore</h3>
-          <p>Practices that support emotional regulation, physical strength, and inner calm â so movement becomes a way back to yourself.</p>
+          <p>Practices that support emotional regulation, physical strength, and inner calm — so movement becomes a way back to yourself.</p>
         </div>
         <div class="pillar reveal">
           <svg class="leaf" viewBox="0 0 24 24" fill="none" stroke="#8FA459" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1Z"/></svg>
@@ -267,16 +268,14 @@
   <section class="about" id="about">
     <div class="wrap about-grid">
       <div class="about-photo reveal">
-        <img src="assets/mimi-portrait.jpg" alt="Mimi practicing yoga outdoors in a garden" />
+        <img src="assets/garden.jpg" alt="Mimi practicing yoga outdoors in a garden" />
       </div>
       <div class="about-copy reveal">
-        <h2>About Mimi</h2>
-        <p class="sig">Yoga Teacher · Therapist · Social Worker</p>
-                <p>Miranda Sampedro is a trauma therapist, yoga teacher, and founder of Flow to Grow, a wellness platform dedicated to helping individuals reconnect with themselves through movement, mindfulness, and intentional living.</p>
-        <p>Drawing from her work with adolescents and young adults who have experienced trauma, exploitation, family conflict, and other significant life challenges, Miranda has developed a deep appreciation for the resilience of the human spirit and the importance of creating spaces that foster healing, safety, and connection. This experience provides a unique lens through which she approaches both mental health and yoga, emphasizing self-awareness, nervous system regulation, self-compassion, and sustainable growth.</p>
-        <p>As both a therapist and yoga teacher, Miranda believes that healing extends far beyond a therapy office or yoga studio. Her work is rooted in the understanding that growth happens through the small, intentional choices we make each dayâhow we care for ourselves, move our bodies, navigate relationships, respond to challenges, and reconnect with what matters most.</p>
-        <p>Through yoga classes, workshops, community experiences, and educational resources, Miranda strives to make wellness practices accessible, trauma-informed, and relevant to everyday life. She is passionate about helping others cultivate balance, resilience, and a deeper connection to themselves and their communities.</p>
-        <p>Flow to Grow exists to help people reconnect with themselves through movement, mindfulness, and intentional living.</p>
+        <p class="eyebrow">About Mimi</p>
+        <h2>Healing through movement.</h2>
+        <p class="sig">Compassion first, always.</p>
+        <p>Mimi is a trauma-informed yoga teacher and therapist-in-training, dedicated to helping people heal through movement. Drawing on her background in psychology and social work from Tulane University — including direct work with trafficked youth — she brings deep care and clinical understanding to every practice she leads.</p>
+        <p>Her classes are a place to slow down, feel safe, and rebuild trust with your own body — one breath at a time.</p>
         <ul class="credlist">
           <li>Trauma-Informed</li>
           <li>Psychology &amp; Social Work, Tulane</li>
@@ -299,7 +298,7 @@
         <div class="classcard reveal">
           <img src="assets/class-lead.jpg" alt="Mimi leading an outdoor yoga class" />
           <div class="veil"></div>
-          <div class="label"><h3>Guided group flow</h3><p>Move together, at your own pace â outdoors, in the light.</p></div>
+          <div class="label"><h3>Guided group flow</h3><p>Move together, at your own pace — outdoors, in the light.</p></div>
         </div>
         <div class="classcard reveal">
           <img src="assets/community.jpg" alt="A community yoga class practicing together outdoors" />
@@ -337,7 +336,7 @@
     <img src="assets/logo-badge.png" alt="Flow To Grow logo" />
     <div class="fname">Flow to Grow</div>
     <div class="ftag">Trauma-Informed Yoga</div>
-    <div class="fmeta">Â© <span id="yr"></span> Flow To Grow Â· Find peace in movement.</div>
+    <div class="fmeta">© <span id="yr"></span> Flow To Grow · Find peace in movement.</div>
   </div>
 </footer>
 
