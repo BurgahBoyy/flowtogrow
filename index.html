@@ -108,7 +108,8 @@
     /* MEET MIRANDA */
     .meet { background: var(--linen); }
     .meet-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
-    .meet-photo img { width: 100%; border-radius: var(--r); box-shadow: var(--shadow); }
+    .meet-photo { display: flex; justify-content: center; }
+    .meet-photo img { width: 100%; max-width: 420px; aspect-ratio: 1; border-radius: 50%; object-fit: cover; object-position: center top; border: 6px solid var(--warm-white); box-shadow: var(--shadow); }
     .meet-copy .sig { font-family: 'Bitter', serif; font-style: italic; font-size: 1rem; color: var(--sage); font-weight: 600; margin-bottom: 28px; display: block; }
     .meet-copy p { color: var(--ink-soft); margin-bottom: 16px; line-height: 1.85; }
 
