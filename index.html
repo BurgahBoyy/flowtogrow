@@ -118,22 +118,24 @@
     .ways-header h2 { color: #fff; }
     .ways-header .eyebrow { color: rgba(255,255,255,.6); }
     .ways-header .lead { color: rgba(255,255,255,.75); max-width: 560px; margin: 0 auto; }
-    .ways-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .ways-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
     .way-card {
       background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.15);
       border-radius: var(--r); padding: 36px 28px;
       transition: background .25s, transform .25s;
+      display: block; text-decoration: none;
     }
     .way-card:hover { background: rgba(255,255,255,.18); transform: translateY(-3px); }
     .way-icon { font-size: 2rem; margin-bottom: 16px; }
     .way-card h3 { color: #fff; font-family: 'Shrikhand', cursive; font-size: 1.2rem; margin-bottom: 10px; }
     .way-card p { color: rgba(255,255,255,.75); font-size: .9rem; line-height: 1.7; }
+    .coming-soon-tag { display: inline-block; margin-top: 14px; font-size: .7rem; letter-spacing: .1em; text-transform: uppercase; font-weight: 700; background: rgba(255,255,255,.15); color: rgba(255,255,255,.7); padding: 4px 10px; border-radius: 40px; border: 1px solid rgba(255,255,255,.25); }
 
     /* LIVING YOGA */
     .living { background: var(--warm-white); }
     .living-header { text-align: center; margin-bottom: 60px; }
     .living-header .lead { max-width: 620px; margin: 0 auto; }
-    .living-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .living-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
     .living-tile {
       text-decoration: none; display: block;
       background: var(--linen); border-radius: var(--r);
@@ -145,7 +147,7 @@
     .living-tile h3 { font-family: 'Shrikhand', cursive; color: var(--ink); font-size: 1.2rem; margin-bottom: 10px; }
     .living-tile p { color: var(--ink-soft); font-size: .9rem; line-height: 1.7; }
     .tile-arrow { display: inline-block; margin-top: 20px; color: var(--still-water); font-size: .85rem; font-weight: 600; letter-spacing: .04em; }
-    .living-tile:last-child { grid-column: 2; }
+    .living-tile:last-child { grid-column: auto; }
 
     /* CLASSES */
     .classes { background: var(--linen); }
@@ -200,15 +202,13 @@
       .hero-inner, .meet-inner { grid-template-columns: 1fr; gap: 48px; }
       .hero-photo { order: -1; }
       .portrait { max-width: 300px; }
-      .ways-grid { grid-template-columns: repeat(2, 1fr); }
-      .living-grid { grid-template-columns: repeat(2, 1fr); }
-      .living-tile:last-child { grid-column: auto; }
+      .ways-grid { grid-template-columns: 1fr; }
+      .living-grid { grid-template-columns: 1fr; }
       .classes-grid, .contact-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 600px) {
       section { padding: 64px 20px; }
       .ways-grid, .living-grid { grid-template-columns: 1fr; }
-      .living-tile:last-child { grid-column: auto; }
       .schedule-item { grid-template-columns: 1fr; gap: 2px; }
       .nav-links {
         display: none; flex-direction: column;
@@ -314,25 +314,21 @@
       <p class="lead">Whether you are new to yoga or deepening a long-standing practice, there is a place for you here.</p>
     </div>
     <div class="ways-grid">
-      <div class="way-card reveal">
+      <a class="way-card reveal" href="#classes">
         <div class="way-icon">🧘</div>
         <h3>Public Classes</h3>
         <p>Group yoga classes open to all levels. A grounded, welcoming space to move, breathe, and reconnect.</p>
-      </div>
-      <div class="way-card reveal">
+      </a>
+      <a class="way-card reveal" href="#contact">
         <div class="way-icon">🌿</div>
         <h3>Private Sessions</h3>
         <p>One-on-one sessions tailored to your needs — movement, mindfulness, nervous system support, or a blend of all three.</p>
-      </div>
+      </a>
       <div class="way-card reveal">
         <div class="way-icon">🌸</div>
-        <h3>Workshops &amp; Events</h3>
+        <h3>Workshops &amp; Community Events</h3>
         <p>Community gatherings exploring yoga philosophy, self-compassion, healing, and intentional living.</p>
-      </div>
-      <div class="way-card reveal">
-        <div class="way-icon">✨</div>
-        <h3>Future Offerings</h3>
-        <p>Online resources, courses, and wellness programs are growing. Stay connected for what is coming next.</p>
+        <span class="coming-soon-tag">Coming Soon</span>
       </div>
     </div>
   </div>
@@ -353,40 +349,22 @@
         <p>A roadmap for living — the ancient framework that goes far beyond postures into ethics, awareness, and inner stillness.</p>
         <span class="tile-arrow">Explore →</span>
       </a>
-      <a class="living-tile reveal" href="living-yoga/nervous-system.html">
-        <div class="tile-icon">🌊</div>
-        <h3>Nervous System Regulation</h3>
-        <p>Understanding how your body responds to stress — and how movement, breath, and presence can restore a sense of safety and calm.</p>
-        <span class="tile-arrow">Explore →</span>
-      </a>
-      <a class="living-tile reveal" href="living-yoga/self-compassion.html">
-        <div class="tile-icon">💛</div>
-        <h3>Self-Compassion</h3>
-        <p>Treating yourself with the same warmth you would offer someone you love. The quiet foundation of all lasting growth.</p>
+      <a class="living-tile reveal" href="living-yoga/healing.html">
+        <div class="tile-icon">🌿</div>
+        <h3>Yoga as Therapy</h3>
+        <p>How movement, breath, and body awareness can reach what words sometimes can't — supporting trauma healing, nervous system regulation, and emotional wellbeing from the inside out.</p>
         <span class="tile-arrow">Explore →</span>
       </a>
       <a class="living-tile reveal" href="living-yoga/mindfulness.html">
         <div class="tile-icon">🍃</div>
-        <h3>Mindfulness</h3>
-        <p>Presence as a practice. Learning to observe your inner experience with curiosity, openness, and without judgment.</p>
-        <span class="tile-arrow">Explore →</span>
-      </a>
-      <a class="living-tile reveal" href="living-yoga/healing.html">
-        <div class="tile-icon">🌱</div>
-        <h3>Healing</h3>
-        <p>Healing is not linear, and it is not a destination. It is a way of moving through the world with gentleness and intention.</p>
+        <h3>Practicing Presence</h3>
+        <p>How learning to slow down and pay attention — really pay attention — can reduce anxiety, regulate emotions, and shift the way you experience everyday life.</p>
         <span class="tile-arrow">Explore →</span>
       </a>
       <a class="living-tile reveal" href="living-yoga/intentional-living.html">
         <div class="tile-icon">🧭</div>
-        <h3>Intentional Living</h3>
-        <p>Aligning your daily choices with your deepest values. Small, conscious actions that shape the life you want to live.</p>
-        <span class="tile-arrow">Explore →</span>
-      </a>
-      <a class="living-tile reveal" href="living-yoga/personal-growth.html">
-        <div class="tile-icon">🌸</div>
-        <h3>Personal Growth</h3>
-        <p>Growth happens in the quiet moments. Learning how to tend to yourself so that you can truly flourish.</p>
+        <h3>Living Intentionally, Guided by Values</h3>
+        <p>Drawing from yoga philosophy and Acceptance and Commitment Therapy — a framework for getting clear on what matters most and building a life that feels rich, meaningful, and deeply yours.</p>
         <span class="tile-arrow">Explore →</span>
       </a>
     </div>
